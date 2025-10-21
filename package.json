@@ -1,0 +1,32 @@
+{
+  "name": "laddoo-app-website",
+  "version": "1.0.0",
+  "description": "Official website for Laddoo App - Mobile recharge platform with assured cashback",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "python -m http.server 8000",
+    "build": "echo 'Static website - no build process needed'",
+    "deploy": "echo 'Ready for deployment to GitHub Pages'"
+  },
+  "keywords": [
+    "mobile-recharge",
+    "cashback",
+    "laddoo-app",
+    "recharge-platform",
+    "android-app"
+  ],
+  "author": "Laddoo App Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/laddoo-app-website.git"
+  },
+  "homepage": "https://yourusername.github.io/laddoo-app-website",
+  "bugs": {
+    "url": "https://github.com/yourusername/laddoo-app-website/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
