@@ -228,96 +228,67 @@ body {
     position: relative;
 }
 
-.app-interface {
-    padding: 20px;
+/* Screenshot Slider Styles */
+.screenshot-slider {
+    position: relative;
+    width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
+    overflow: hidden;
 }
 
-.app-header {
+.screenshot-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
+    justify-content: center;
 }
 
-.app-logo-small {
-    width: 30px;
-    height: 30px;
-    background: #ff6b35;
+.screenshot-slide.active {
+    opacity: 1;
+}
+
+.screenshot-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px 12px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-}
-
-.recharge-card {
-    background: linear-gradient(135deg, #ff6b35, #f7931e);
-    padding: 30px;
-    border-radius: 20px;
-    color: white;
-    text-align: center;
-}
-
-.recharge-card h3 {
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-}
-
-.amount-input {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.amount-input input {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    width: 100px;
-}
-
-.amount-input input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.cashback-info {
-    margin-bottom: 20px;
-}
-
-.cashback-amount {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-weight: 600;
-}
-
-.recharge-btn {
-    background: white;
-    color: #ff6b35;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 25px;
-    font-weight: bold;
+    background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.recharge-btn:hover {
-    transform: scale(1.05);
+.dot.active {
+    background: #ff6b35;
+    width: 24px;
+    border-radius: 4px;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.8);
 }
 
 /* Features Section */

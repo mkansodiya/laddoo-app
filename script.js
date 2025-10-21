@@ -113,6 +113,56 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
+// Screenshot Slider Auto-slide
+let currentSlide = 0;
+const slides = document.querySelectorAll('.screenshot-slide');
+const dots = document.querySelectorAll('.dot');
+const slideInterval = 3000; // 3 seconds
+
+function showSlide(index) {
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Add active class to current slide and dot
+    if (slides[index]) {
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+    }
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Auto-slide every 3 seconds
+let sliderAutoPlay = setInterval(nextSlide, slideInterval);
+
+// Manual slide selection with dots
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+        
+        // Reset auto-play timer when manually clicking
+        clearInterval(sliderAutoPlay);
+        sliderAutoPlay = setInterval(nextSlide, slideInterval);
+    });
+});
+
+// Pause auto-slide on hover
+const phoneScreen = document.querySelector('.phone-screen');
+if (phoneScreen) {
+    phoneScreen.addEventListener('mouseenter', () => {
+        clearInterval(sliderAutoPlay);
+    });
+    
+    phoneScreen.addEventListener('mouseleave', () => {
+        sliderAutoPlay = setInterval(nextSlide, slideInterval);
+    });
+}
+
 // Form validation (if forms are added later)
 function validateForm(form) {
     const inputs = form.querySelectorAll('input[required], textarea[required]');
