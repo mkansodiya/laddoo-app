@@ -19,9 +19,9 @@ A comprehensive website for the Laddoo App - a mobile recharge platform with ass
 - **24/7 Support**: Round-the-clock customer support for all your queries
 
 ### 💰 **How Cashback Works:**
-- Cashback is automatically credited to your Laddoo wallet within 24-48 hours
+- Receive a scratch card on every successful recharge transaction
+- Guaranteed cashback is credited instantly when you scratch the card
 - Use cashback for future recharges or withdraw to your bank account
-- Minimum withdrawal amount is ₹50
 - No hidden terms or conditions
 
 ### 🏆 **Why Choose Laddoo App?**
