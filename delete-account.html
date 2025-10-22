@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account Request - Laddoo App</title>
+    <meta name="description" content="Request deletion of your Laddoo App account and associated data. Learn about data retention and account deletion process.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .page-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            line-height: 1.8;
+        }
+        
+        .page-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-content h2 {
+            color: #ff6b35;
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .page-content h3 {
+            color: #333;
+            margin: 1.5rem 0 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .page-content p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .page-content ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .page-content li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-left: 5px solid #ff6b35;
+        }
+        
+        .warning-box h3 {
+            color: #ff6b35;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .info-box {
+            background: #e8f4fd;
+            border: 2px solid #4a90e2;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .info-box h3 {
+            color: #4a90e2;
+            margin-top: 0;
+        }
+        
+        .deletion-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 3rem 0;
+        }
+        
+        .deletion-form h2 {
+            color: #ff6b35;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 0.25rem;
+        }
+        
+        .checkbox-group label {
+            margin: 0;
+            font-weight: normal;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #d9534f, #c9302c);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .cancel-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .cancel-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .consequences-list {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        
+        .consequences-list h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        
+        .consequences-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .consequences-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e1e5e9;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .consequences-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .consequences-list i {
+            color: #ff6b35;
+            margin-top: 0.25rem;
+        }
+        
+        .contact-support {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .contact-support h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .contact-support p {
+            color: white;
+            opacity: 0.9;
+        }
+        
+        .contact-support a {
+            color: white;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .deletion-form {
+                padding: 2rem;
+            }
+            
+            .page-content {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="appicno.png" alt="Laddoo App Logo" class="logo">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-user-slash"></i> Delete Account Request</h1>
+            <p>Request permanent deletion of your Laddoo App account and associated data</p>
+        </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+        <div class="warning-box">
+            <h3><i class="fas fa-exclamation-triangle"></i> Important: Account Deletion is Permanent</h3>
+            <p>Before proceeding with account deletion, please understand that this action is <strong>irreversible</strong>. Once your account is deleted, you will not be able to recover your data, transaction history, or cashback balance.</p>
+        </div>
+
+        <h2>What Happens When You Delete Your Account?</h2>
+        <p>When you submit an account deletion request, the following actions will be taken:</p>
+
+        <div class="consequences-list">
+            <h3>Immediate Effects:</h3>
+            <ul>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <span><strong>Account Deactivation:</strong> Your account will be immediately deactivated and you will be logged out from all devices.</span>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <span><strong>Access Removal:</strong> You will no longer be able to log in or use any Laddoo App services.</span>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <span><strong>Mobile Number Release:</strong> Your registered mobile number will be released and can be used to create a new account in the future.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="consequences-list">
+            <h3>Data Deletion (Within 30 Days):</h3>
+            <ul>
+                <li>
+                    <i class="fas fa-trash-alt"></i>
+                    <span><strong>Personal Information:</strong> Name, email address, phone number, and profile details will be permanently deleted.</span>
+                </li>
+                <li>
+                    <i class="fas fa-trash-alt"></i>
+                    <span><strong>Transaction History:</strong> All recharge history and transaction records will be deleted (except those required by law).</span>
+                </li>
+                <li>
+                    <i class="fas fa-trash-alt"></i>
+                    <span><strong>Cashback Wallet:</strong> Any remaining cashback balance will be forfeited and cannot be recovered.</span>
+                </li>
+                <li>
+                    <i class="fas fa-trash-alt"></i>
+                    <span><strong>Communication Records:</strong> All support conversations and feedback will be deleted.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-info-circle"></i> Data Retention for Legal Compliance</h3>
+            <p>Please note that certain data must be retained for legal and regulatory compliance purposes, even after account deletion:</p>
+            <ul>
+                <li><strong>Financial Records:</strong> Transaction records, payment information, and KYC documents will be retained for 7 years as required by Indian financial regulations and RBI guidelines.</li>
+                <li><strong>Fraud Prevention:</strong> Information related to fraud prevention, security investigations, or legal proceedings may be retained as legally required.</li>
+                <li><strong>Tax Records:</strong> Records required for tax compliance will be retained as per applicable laws.</li>
+            </ul>
+            <p>This retained data will be securely stored, access-restricted, and used solely for legal compliance purposes. It will not be used for marketing or operational purposes.</p>
+        </div>
+
+        <h2>Before You Delete Your Account</h2>
+        <p>Please ensure you have completed the following before requesting account deletion:</p>
+        <ul>
+            <li><strong>Withdraw Cashback:</strong> Transfer any remaining cashback balance to your bank account, as it will be forfeited upon deletion.</li>
+            <li><strong>Cancel Pending Transactions:</strong> Ensure all pending recharges are completed or refunded.</li>
+            <li><strong>Download Transaction History:</strong> Save any transaction records or receipts you may need for future reference.</li>
+            <li><strong>Resolve Disputes:</strong> Complete any ongoing customer support issues or disputes.</li>
+            <li><strong>Consider Alternatives:</strong> If you have concerns about privacy or notifications, consider adjusting your settings instead of deleting your account.</li>
+        </ul>
+
+        <div class="contact-support">
+            <h3><i class="fas fa-headset"></i> Need Help?</h3>
+            <p>If you're experiencing issues or have concerns, our support team is here to help. We can assist with privacy settings, notification preferences, or other concerns without needing to delete your account.</p>
+            <p><strong>Contact Support:</strong> <a href="contact.html">Click here to contact us</a> or call +91 7726828026</p>
+        </div>
+
+        <!-- Deletion Request Form -->
+        <div class="deletion-form">
+            <h2><i class="fas fa-clipboard-list"></i> Account Deletion Request Form</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 2rem;">Complete this form to submit your account deletion request. We will process your request within 48 hours.</p>
+            
+            <form id="deletionForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name as registered" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your registered email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Registered Mobile Number *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 XXXXXXXXXX" pattern="[0-9+\s\-]+" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reason">Reason for Deletion *</label>
+                    <select id="reason" name="reason" required>
+                        <option value="">Select a reason</option>
+                        <option value="privacy">Privacy Concerns</option>
+                        <option value="notUseful">App Not Useful Anymore</option>
+                        <option value="tooManyNotifications">Too Many Notifications</option>
+                        <option value="switching">Switching to Another Service</option>
+                        <option value="technical">Technical Issues</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="additionalInfo">Additional Information (Optional)</label>
+                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Please provide any additional details about your deletion request..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="verificationCode">Account Verification Code *</label>
+                    <input type="text" id="verificationCode" name="verificationCode" placeholder="Enter the code sent to your registered mobile" required>
+                    <small style="color: #666; display: block; margin-top: 0.5rem;">
+                        <i class="fas fa-info-circle"></i> Click "Send Verification Code" below to receive a code on your registered mobile number.
+                    </small>
+                </div>
+                
+                <button type="button" id="sendCodeBtn" class="cancel-btn" style="background: #4a90e2; margin-bottom: 1rem;">
+                    <i class="fas fa-sms"></i> Send Verification Code
+                </button>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="confirmUnderstand" name="confirmUnderstand" required>
+                    <label for="confirmUnderstand">I understand that account deletion is permanent and irreversible. I acknowledge that all my data, including cashback balance, transaction history, and personal information will be deleted (subject to legal retention requirements).</label>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="confirmWithdrawn" name="confirmWithdrawn" required>
+                    <label for="confirmWithdrawn">I confirm that I have withdrawn all cashback from my wallet and completed all pending transactions.</label>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="confirmConsent" name="confirmConsent" required>
+                    <label for="confirmConsent">I voluntarily consent to the deletion of my Laddoo App account and all associated data.</label>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn" disabled>
+                    <i class="fas fa-trash-alt"></i> Submit Deletion Request
+                </button>
+                
+                <a href="index.html" class="cancel-btn">
+                    <i class="fas fa-times"></i> Cancel & Return to Home
+                </a>
+            </form>
+        </div>
+
+        <h2>What Happens After Submission?</h2>
+        <div class="info-box">
+            <ol style="margin: 0; padding-left: 1.5rem;">
+                <li><strong>Verification (Within 24 hours):</strong> We will verify your identity and account ownership to prevent unauthorized deletion requests.</li>
+                <li><strong>Final Confirmation (24-48 hours):</strong> You will receive a final confirmation email with a link to cancel the deletion if you change your mind.</li>
+                <li><strong>Grace Period (7 days):</strong> Your account will enter a grace period during which you can still cancel the deletion request.</li>
+                <li><strong>Permanent Deletion (After 7 days):</strong> If no cancellation is received, your account and data will be permanently deleted.</li>
+                <li><strong>Deletion Confirmation:</strong> You will receive a final email confirming that your account has been deleted.</li>
+            </ol>
+        </div>
+
+        <h2>How to Cancel a Deletion Request</h2>
+        <p>If you change your mind during the 7-day grace period, you can cancel your deletion request by:</p>
+        <ul>
+            <li>Clicking the cancellation link in the confirmation email</li>
+            <li>Logging back into your account (if still within grace period)</li>
+            <li>Contacting our support team at +91 7726828026</li>
+        </ul>
+
+        <div class="warning-box">
+            <h3><i class="fas fa-question-circle"></i> Have Questions?</h3>
+            <p>If you have any questions about the account deletion process, data retention, or need assistance, please <a href="contact.html" style="color: #ff6b35; font-weight: bold;">contact our support team</a> before submitting your request.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="appicno.png" alt="Laddoo App Logo" class="logo">
+                    </div>
+                    <p>Your trusted mobile recharge platform with assured cashback on every successful recharge.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                        <li><a href="delete-account.html">Delete Account</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +91 7726828026</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Laddoo App. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Enable/disable submit button based on checkboxes
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const submitBtn = document.getElementById('submitBtn');
+        const verificationCode = document.getElementById('verificationCode');
+        
+        function checkFormValidity() {
+            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+            const hasCode = verificationCode.value.trim().length > 0;
+            submitBtn.disabled = !(allChecked && hasCode);
+        }
+        
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', checkFormValidity);
+        });
+        
+        verificationCode.addEventListener('input', checkFormValidity);
+        
+        // Send verification code
+        let codeSent = false;
+        document.getElementById('sendCodeBtn').addEventListener('click', function() {
+            const phone = document.getElementById('phone').value;
+            
+            if (!phone) {
+                alert('Please enter your registered mobile number first.');
+                return;
+            }
+            
+            if (codeSent) {
+                alert('Verification code already sent. Please check your SMS.');
+                return;
+            }
+            
+            // Simulate sending code
+            this.disabled = true;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            
+            setTimeout(() => {
+                codeSent = true;
+                this.innerHTML = '<i class="fas fa-check"></i> Code Sent';
+                this.style.background = '#28a745';
+                alert('A 6-digit verification code has been sent to ' + phone + '. Please enter it in the form.');
+            }, 1500);
+        });
+        
+        // Handle form submission
+        document.getElementById('deletionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!codeSent) {
+                alert('Please send and enter the verification code before submitting.');
+                return;
+            }
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Final confirmation
+            const confirmed = confirm(
+                '⚠️ FINAL CONFIRMATION ⚠️\n\n' +
+                'Are you absolutely sure you want to delete your account?\n\n' +
+                'This action is PERMANENT and IRREVERSIBLE.\n\n' +
+                'Your account will be deleted within 7 days if you do not cancel this request.\n\n' +
+                'Click OK to proceed with deletion request, or Cancel to go back.'
+            );
+            
+            if (confirmed) {
+                // Simulate form submission
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Request...';
+                
+                setTimeout(() => {
+                    alert(
+                        '✓ Account Deletion Request Submitted\n\n' +
+                        'Your account deletion request has been received and will be processed within 48 hours.\n\n' +
+                        'You will receive a confirmation email with instructions on how to cancel this request if you change your mind.\n\n' +
+                        'Grace Period: 7 days\n\n' +
+                        'Thank you for using Laddoo App.'
+                    );
+                    
+                    // Redirect to home page
+                    window.location.href = 'index.html';
+                }, 2000);
+            }
+        });
+        
+        // Warning on page leave
+        let formModified = false;
+        document.getElementById('deletionForm').addEventListener('input', function() {
+            formModified = true;
+        });
+        
+        window.addEventListener('beforeunload', function(e) {
+            if (formModified) {
+                e.preventDefault();
+                e.returnValue = '';
+                return '';
+            }
+        });
+    </script>
+</body>
+</html>
+
